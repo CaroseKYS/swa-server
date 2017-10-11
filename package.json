@@ -4,7 +4,16 @@
   "description": "swa平台的 **web服务器** 模块，是开发、部署及运行服务的入口模块。",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www",
+    "start": "node ./bin/www",
+    "release-dev"   : "swa release development -cw",
+    "release-test"  : "swa release test -c",
+    "release-pre"   : "swa release preproduction -c",
+    "release-pro"   : "swa release production -c",
+    "release-test-n": "swa release test-no-optimize -c",
+    "release-pre-n" : "swa release preproduction-no-optimize -c",
+    "release-pro-n" : "swa release production-no-optimize -c",
   },
   "repository": {
     "type": "git",
