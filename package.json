@@ -1,0 +1,38 @@
+{
+  "name": "swa-server",
+  "version": "0.1.0",
+  "description": "swa平台的 **web服务器** 模块，是开发、部署及运行服务的入口模块。",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CaroseKYS/swa-server.git"
+  },
+  "author": {
+    "name": "康永胜",
+    "email": "kys8823@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CaroseKYS/swa-server/issues"
+  },
+  "homepage": "https://github.com/CaroseKYS/swa-server#readme",
+  "dependencies": {
+    "body-parser": "~1",
+    "cookie-parser": "~1",
+    "debug": "~3",
+    "express": "~4",
+    "connect-multiparty": "~2",
+    "hbs": "~4",
+    "serve-favicon": "~2",
+    "eventproxy": "~1",
+    "async": "~2",
+    "xml-escape": "~1",
+    "swa-logger": "~1",
+    "swa-utils": "latest",
+    "swa-middleware-logger": "~1",
+    "swa-session": "~1"
+  }
+}
