@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./bin/www",
-    "start": "node ./bin/www",
+    "start": "node ./bin/http",
+    "start": "node ./bin/http",
     "release-dev"   : "swa release development -cw",
     "release-test"  : "swa release test -c",
     "release-pre"   : "swa release preproduction -c",
