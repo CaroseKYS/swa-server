@@ -99,42 +99,42 @@ const oConfig = {
   'middlewares': {
     //为站点提供入口控制服务的中间件
     'swa-getway': {
-      'mount': false,
+      'enabled': false,
       'mount-path': '/'
     },
 
     //为站点提供logo的中间件
     'serve-favicon': {
-      'mount': true
+      'enabled': true
     },
 
     //记录请求日志的中间件
     'swa-middleware-logger': {
-      'mount': true,
+      'enabled': true,
       'mount-path': '/'
     },
 
     //解析cookie的中间件
     'cookie-parser': {
-      'mount': true,
+      'enabled': true,
       'mount-path': '/'
     },
 
     //处理session的中间件
     'swa-session': {
-      'mount': true,
+      'enabled': true,
       'mount-path': '/'
     },
 
     //单点登录的服务器中间件
     'swa-sso-server': {
-      'mount': false,
+      'enabled': false,
       'mount-path': '/'
     },
 
     //单点登录的客户端中间件
     'swa-sso-client': {
-      'mount': false,
+      'enabled': false,
       'mount-path': '/'
     }
   },
