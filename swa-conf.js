@@ -53,46 +53,38 @@ const oConfig = {
 
   /*部署信息配置*/
   'deploy': {
-    /*发布环境*/
-    'pattern': fisMedia,
-    /*开发环境下的发布配置*/
-    'dev': {
-      'real-path' : path.join(__dirname, '..', 'swa-deploy'), /*部署路径*/
-      'debug-prot': 5858, /*调试端口*/
-      'uri-to-open-after-running': '', /*部署完成之后需要自动打开的 uri*/
-      'application-to-open-uri': 'chrome', /*打开uri的应用程序，如chrome, iexplore, firefox等*/
-    }
-    /*公有cdn*/
-    'cdn-static': {
-      'enable': true,
-      'url-prefix': 'https://cdn.internmen.cn', /*内容访问路径的前缀*/
-      'receivers': [
+    'evn': fisMedia, // 发布环境, 发布工具自动填写, 请勿修改
+    'swa-server': { // web应用服务器部署配置
+      'debug-prot': 5858, // 调试端口, 只有 evn 为 development 的时候才生效
+      'uri-to-open-after-running': '', // 部署完成之后需要自动打开的 uri, 只有 evn 为 development 的时候才生效
+      'application-to-open-uri': 'chrome', // 打开uri的应用程序，如chrome, iexplore, firefox等
+      'receivers': [// 接收部署文件的接收器
         {
-          'url' : 'http://cdn.internmen.cn/receiver',
-          'real-path' : '/cdn/static'
+          // 'url' : 'http://www.internmen.cn/receiver', // 有该属性表示为远程部署，反之为本地部署
+          'real-path' : path.join(__dirname, '..', 'swa-deploy'), /*部署路径*/
         }
       ]
     },
-    /*业务cdn*/
-    'cdn-biz':{
-      'enable': true,;
-      'url-prefix': 'https://cdn.internmen.cn',
-      'receivers': [
-        {
-          'url' : 'http://cdn.internmen.cn/receiver',
-          'real-path' : '/cdn/biz'
-        }
-      ]
-    },
-    /*web应用服务器*/
-    'swa-server': {
-      'receivers': [
-        {
-          'url' : 'http://www.internmen.cn/receiver',
-          'real-path' : '/apps/swa-server'
-        }
-      ]
-    }
+
+    // 'cdn-static': { // 静态资源cdn部署配置, 若无该配置, 则继承 swa-server 的配置
+    //   'url-prefix': 'https://cdn.internmen.cn', // 内容访问路径的前缀, 即cdn地址
+    //   'receivers': [ // 该配置与 swa-server 的配置项含义相同
+    //     {
+    //       // 'url' : 'http://cdn.internmen.cn/receiver',
+    //       'real-path' : '/cdn/static'
+    //     }
+    //   ]
+    // },
+
+    // 'cdn-biz':{ // 业务cdn部署配置, 若无该配置, 则继承 swa-server 的配置, 配置项含义参考 cdn-static
+    //   'url-prefix': 'https://cdn.internmen.cn',
+    //   'receivers': [
+    //     {
+    //       // 'url' : 'http://cdn.internmen.cn/receiver',
+    //       'real-path' : '/cdn/biz'
+    //     }
+    //   ]
+    // },
   },
 
   /*中间件开关，'true'表示开启，'false'表示关闭，不配置默认开启*/
@@ -154,16 +146,16 @@ const oConfig = {
   /*配置 body-parser 中间件*/
   'body-parser': {
     'json': {
-      'limit': '100kb',
+      'limit': '128kb',
       'type': 'application/json'
     },
     'urlencoded': {
-      'limit': '100kb',
+      'limit': '128kb',
       'extended': false,
       'type': 'application/x-www-form-urlencoded'
     },
     'text': {
-      'limit': '100kb',
+      'limit': '128kb',
       'extended': false,
       'type': 'text/plain'
     }
